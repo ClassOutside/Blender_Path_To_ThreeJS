@@ -6,7 +6,6 @@ import { getCameraList } from '../helpers/CameraHelper.js'
 
 const scenePath = './src/models/scene.gltf'
 const curvePath = './src/models/curvePath.json'
-const objectToTraverseMazeName = 'Sphere'
 
 export async function setupScene(canvas) {
 
