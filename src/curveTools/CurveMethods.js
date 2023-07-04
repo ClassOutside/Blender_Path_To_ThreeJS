@@ -33,13 +33,13 @@ function createCurveFromJSON(json) {
     // Create a CatmullRomCurve3 using the points array
     const curve = new THREE.CatmullRomCurve3(points);
 
-	// curve.closed = true;
+    curve.closed = json.closed;
 
-	return curve;
+    return curve;
 }
 
 function getTubeFromCurve(curve){
-    const geometry = new THREE.TubeGeometry(curve, 100, .05, 8, true)
+    const geometry = new THREE.TubeGeometry(curve, 100, .05, 8, curve.closed)
     const material = new THREE.MeshBasicMaterial({ color: 0xffffff, wireframe: true, side: THREE.DoubleSide });
     const mesh = new THREE.Mesh(geometry, material);
 
