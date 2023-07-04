@@ -1,9 +1,9 @@
 import * as THREE from 'three';
 import { loadJSON } from '../helpers/JSONHelper.js';
 
-export async function loadCurveFromJSON(cameraTrackPath) {
+export async function loadCurveFromJSON(jsonPath) {
 	
-	let curveJSON = await loadJSON(cameraTrackPath);
+	let curveJSON = await loadJSON(jsonPath);
 	let curve = createCurveFromJSON(curveJSON);
 	let curveTubeMesh = getTubeFromCurve(curve); 
 
