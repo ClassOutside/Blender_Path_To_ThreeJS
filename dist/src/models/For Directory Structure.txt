@@ -1,0 +1,2 @@
+This text file is only here to maintain the directory structure when uploading to github.
+This way, when you download the files you do not need to manually recreate this directory.
