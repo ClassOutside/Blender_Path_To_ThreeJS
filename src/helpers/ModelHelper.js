@@ -16,16 +16,3 @@ export const LoadGLTFByPath = (scene, startingModelPath) => {
       });
     });
 };
-
-export const getOBjectByName = (scene, name) => {
-
-  let foundObject = null;
-
-  scene.traverse((object) => {
-    if (object.name === name && foundObject === null) {
-      foundObject = object;
-    }
-  });
-
-  return foundObject;
-}
