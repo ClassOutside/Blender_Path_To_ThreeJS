@@ -6,7 +6,8 @@ ThreeJS project to demonstrate importing a path or curve from Blender and recrea
 Purpose:
   
   This project is intended for demonstrating how to import a JSON file and convert the information into a CatmullRomCurve3.
-  A Blender Add-on is available for exporting NURBS paths to a compatible JSON file that can be imported in this project.
+  A Blender Add-on is available for exporting NURBS paths to a compatible JSON file that can be useful for exporting 
+  NURBS curves and paths in a way that ThreeJS can read.
   
   Blender Add-on: https://github.com/ClassOutside/Export_Vertices_To_JSON
 
