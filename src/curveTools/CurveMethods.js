@@ -1,11 +1,11 @@
 import * as THREE from 'three';
 import { loadJSON } from '../helpers/JSONHelper.js';
 
-export async function loadCurveFromJSON(scene, curvePathJSON) {
+export async function loadCurveFromJSON(jsonPath) {
 	
-	let curveJSON = await loadJSON(curvePathJSON);
+	let curveJSON = await loadJSON(jsonPath);
 	let curve = createCurveFromJSON(curveJSON);
-	let curveTubeMesh = getTubeFromCurveAndJSONData(curve, curveJSON);
+	let curveTubeMesh = getTubeFromCurve(curve); 
 
 	let curveAndMesh = {
 		curve: curve,
@@ -33,13 +33,13 @@ function createCurveFromJSON(json) {
     // Create a CatmullRomCurve3 using the points array
     const curve = new THREE.CatmullRomCurve3(points);
 
-	curve.closed = true;
+    curve.closed = json.closed;
 
-	return curve;
+    return curve;
 }
 
-function getTubeFromCurveAndJSONData(curve, json){
-    const geometry = new THREE.TubeGeometry(curve, 100, .05, 8, true)
+function getTubeFromCurve(curve){
+    const geometry = new THREE.TubeGeometry(curve, 100, .05, 8, curve.closed)
     const material = new THREE.MeshBasicMaterial({ color: 0xffffff, wireframe: true, side: THREE.DoubleSide });
     const mesh = new THREE.Mesh(geometry, material);
 
